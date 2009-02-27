@@ -11,6 +11,8 @@ License: BSD
 Group: System Environment/Libraries
 Source: %{name}-%{version}.tar.bz2
 URL: http://www.enlightenment.org/
+BuildRoot:      %{_tmppath}/%{name}-buildroot
+
 
 %description
 Eina is a data type library.
