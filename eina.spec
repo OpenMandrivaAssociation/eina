@@ -8,7 +8,7 @@ Name: eina
 Version: 0.0.1
 Release: %release
 License: BSD
-Group: System Environment/Libraries
+Group: Graphical desktop/Enlightenment
 Source: %{name}-%{version}.tar.bz2
 URL: http://www.enlightenment.org/
 BuildRoot:      %{_tmppath}/%{name}-buildroot
