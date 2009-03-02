@@ -1,7 +1,7 @@
 %define major 0
 %define libname %mklibname %{name} %major
 %define libnamedev %mklibname %{name} -d
-%define release %mkrel 1
+%define release %mkrel 2
 
 Summary: Data Type Library
 Name: eina
@@ -59,15 +59,13 @@ rm -rf $RPM_BUILD_ROOT
 %files -n %libname
 %defattr(-,root,root)
 %{_libdir}/*.so.%{major}*
+%{_libdir}/%name/mp/*.so
 
 %files -n %libnamedev
 %defattr(-,root,root)
 %{_libdir}/pkgconfig/*
 %{_libdir}/*.so
-%{_libdir}/%name/mp/*.so
 %{_libdir}/*.a
 %{_libdir}/*.la
 %{_libdir}/%name/mp/*.la
 %{_includedir}/*
-
-
