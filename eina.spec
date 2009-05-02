@@ -1,18 +1,16 @@
 %define major 0
 %define libname %mklibname %{name} %major
 %define libnamedev %mklibname %{name} -d
-%define release %mkrel 3
 
 Summary: Data Type Library
 Name: eina
-Version: 0.0.1
-Release: %release
-License: BSD
+Version: 0.0.2.060
+Release: %mkrel 1
+License: LGPLv2+
 Group: Graphical desktop/Enlightenment
-Source: %{name}-%{version}.tar.bz2
+Source: http://download.enlightenment.org/snapshots/LATEST/%{name}-%{version}.tar.bz2
 URL: http://www.enlightenment.org/
-BuildRoot:      %{_tmppath}/%{name}-buildroot
-
+BuildRoot: %{_tmppath}/%{name}-buildroot
 
 %description
 Eina is a data type library.
@@ -34,20 +32,19 @@ Provides: %name-devel = %{version}-%{release}
 %description -n %libnamedev
 %{name} development headers and libraries.
 
-
 %prep
 %setup -q
 
 %build
-./autogen.sh
-%configure
+%configure2_5x
 %make
 
 %install
-%makeinstall
+rm -fr %buildroot
+%makeinstall_std
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -fr %buildroot
 
 %if %mdkversion < 200900
 %post -n %libname -p /sbin/ldconfig
