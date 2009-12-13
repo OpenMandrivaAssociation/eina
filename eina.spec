@@ -4,7 +4,7 @@
 
 Summary: Data Type Library
 Name: eina
-Version: 0.0.2.062
+Version: 0.9.9.063
 Release: %mkrel 1
 License: LGPLv2+
 Group: Graphical desktop/Enlightenment
