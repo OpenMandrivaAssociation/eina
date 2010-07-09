@@ -4,7 +4,7 @@
 
 Summary: Data Type Library
 Name: eina
-Version: 0.9.9.063
+Version: 0.9.9.49898
 Release: %mkrel 1
 License: LGPLv2+
 Group: Graphical desktop/Enlightenment
@@ -56,7 +56,6 @@ rm -fr %buildroot
 %files -n %libname
 %defattr(-,root,root)
 %{_libdir}/*.so.%{major}*
-%{_libdir}/%name/mp/*.so
 
 %files -n %libnamedev
 %defattr(-,root,root)
@@ -64,5 +63,4 @@ rm -fr %buildroot
 %{_libdir}/*.so
 %{_libdir}/*.a
 %{_libdir}/*.la
-%{_libdir}/%name/mp/*.la
 %{_includedir}/*
