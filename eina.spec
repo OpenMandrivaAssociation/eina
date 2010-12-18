@@ -1,7 +1,7 @@
 %define major 1
 %define libname %mklibname %{name} %major
 %define libnamedev %mklibname %{name} -d
-%define betaver beta2
+%define betaver beta3
 
 Summary: Data Type Library
 Name: eina
