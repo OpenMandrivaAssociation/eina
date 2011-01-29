@@ -1,15 +1,14 @@
 %define major 1
 %define libname %mklibname %{name} %major
 %define libnamedev %mklibname %{name} -d
-%define betaver beta3
 
 Summary: Data Type Library
 Name: eina
 Version: 1.0.0
-Release: %mkrel -c %betaver 1
+Release: %mkrel 1
 License: LGPLv2+
 Group: Graphical desktop/Enlightenment
-Source: http://download.enlightenment.org/releases/%{name}-%{version}.%{betaver}.tar.bz2
+Source: http://download.enlightenment.org/releases/%{name}-%{version}.tar.bz2
 URL: http://www.enlightenment.org/
 BuildRoot: %{_tmppath}/%{name}-buildroot
 
@@ -34,7 +33,7 @@ Provides: %name-devel = %{version}-%{release}
 %{name} development headers and libraries.
 
 %prep
-%setup -qn %{name}-%{version}.%{betaver}
+%setup -qn %{name}-%{version}
 
 %build
 %configure2_5x
