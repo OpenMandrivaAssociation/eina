@@ -4,8 +4,8 @@
 
 Summary: Data Type Library
 Name: eina
-Version: 1.0.0
-Release: %mkrel 2
+Version: 1.0.1
+Release: %mkrel 1
 License: LGPLv2+
 Group: Graphical desktop/Enlightenment
 Source: http://download.enlightenment.org/releases/%{name}-%{version}.tar.bz2
