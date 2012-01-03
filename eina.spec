@@ -1,66 +1,89 @@
-%define major 1
-%define libname %mklibname %{name} %major
-%define libnamedev %mklibname %{name} -d
+#Tarball of svn snapshot created as follows...
+#Cut and paste in a shell after removing initial #
 
-Summary: Data Type Library
-Name: eina
-Version: 1.0.1
-Release: %mkrel 1
-License: LGPLv2+
-Group: Graphical desktop/Enlightenment
-Source: http://download.enlightenment.org/releases/%{name}-%{version}.tar.bz2
-URL: http://www.enlightenment.org/
-BuildRoot: %{_tmppath}/%{name}-buildroot
+#svn co http://svn.enlightenment.org/svn/e/trunk/eina eina; \
+#cd eina; \
+#SVNREV=$(LANGUAGE=C svn info | grep "Last Changed Rev:" | cut -d: -f 2 | sed "s@ @@"); \
+#v_maj=$(cat configure.ac | grep 'm4_define(\[v_maj\],' | cut -d' ' -f 2 | cut -d[ -f 2 | cut -d] -f 1); \
+#v_min=$(cat configure.ac | grep 'm4_define(\[v_min\],' | cut -d' ' -f 2 | cut -d[ -f 2 | cut -d] -f 1); \
+#v_mic=$(cat configure.ac | grep 'm4_define(\[v_mic\],' | cut -d' ' -f 2 | cut -d[ -f 2 | cut -d] -f 1); \
+#PKG_VERSION=$v_maj.$v_min.$v_mic.$SVNREV; \
+#cd ..; \
+#tar -Jcf eina-$PKG_VERSION.tar.xz eina/ --exclude .svn --exclude .*ignore
+
+%if %{snapshot}
+%define	svndate	20120103
+%define	svnrev	66801
+%endif
+
+%define	major 1
+%define	libname %mklibname %{name} %{major}
+%define	develname %mklibname %{name} -d
+
+Summary:	Data Type Library
+Name:		eina
+%if %{snapshot}
+Version:	1.1.99.%{svnrev}
+Release:	0.%{svndate}.1
+%else
+Version:	1.1.0
+Release:	1
+%endif
+Summary:	Data Type Library
+License:	LGPLv2+
+Group:		Graphical desktop/Enlightenment
+%if %{snapshot}
+Source0:	%{name}-%{version}.tar.xz
+%else
+Source0:	http://download.enlightenment.org/releases/%{name}-%{version}.tar.bz2
+%endif
+URL:		http://www.enlightenment.org/
 
 %description
 Eina is a data type library.
 
-%package -n %libname
-Summary: Libraries for the %{name} package
-Group: System/Libraries
+%package -n %{libname}
+Summary:	Libraries for the %{name} package
+Group:		System/Libraries
 
-%description -n %libname
+%description -n %{libname}
 Libraries for %{name}
 
-%package -n %libnamedev
-Summary: Headers and development libraries from %{name}
-Group: Development/Other
-Requires: %libname = %{version}-%{release}
-Provides: lib%{name}-devel = %{version}-%{release}
-Provides: %name-devel = %{version}-%{release}
+%package -n %{develname}
+Summary:	Headers and development libraries from %{name}
+Group:		Development/Other
+Requires:	%{libname} = %{version}-%{release}
+Provides:	%{name}-devel = %{version}-%{release}
 
-%description -n %libnamedev
+%description -n %{develname}
 %{name} development headers and libraries.
 
 %prep
-%setup -qn %{name}-%{version}
+%if %{snapshot}
+%setup -qn %{name}
+%else
+%setup -q
+%endif
 
 %build
-%configure2_5x
+%if %{snapshot}
+NOCONFIGURE=yes ./autogen.sh
+%endif
+%configure2_5x \
+	--disable-cpu-sse \
+	--disable-static
+
 %make
 
 %install
-rm -fr %buildroot
+rm -fr %{buildroot}
 %makeinstall_std
 
-%clean
-rm -fr %buildroot
-
-%if %mdkversion < 200900
-%post -n %libname -p /sbin/ldconfig
-%endif
-%if %mdkversion < 200900
-%postun -n %libname -p /sbin/ldconfig
-%endif
-
-%files -n %libname
-%defattr(-,root,root)
+%files -n %{libname}
 %{_libdir}/*.so.%{major}*
 
-%files -n %libnamedev
-%defattr(-,root,root)
+%files -n %{develname}
 %{_libdir}/pkgconfig/*
 %{_libdir}/*.so
-%{_libdir}/*.a
-%{_libdir}/*.la
 %{_includedir}/*
+
