@@ -11,6 +11,7 @@
 #cd ..; \
 #tar -Jcf eina-$PKG_VERSION.tar.xz eina/ --exclude .svn --exclude .*ignore
 
+%define snapshot 1
 %if %{snapshot}
 %define	svndate	20120103
 %define	svnrev	66801
