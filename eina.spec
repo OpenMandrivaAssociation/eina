@@ -11,7 +11,7 @@
 #cd ..; \
 #tar -Jcf eina-$PKG_VERSION.tar.xz eina/ --exclude .svn --exclude .*ignore
 
-%define snapshot 1
+%define snapshot 0
 %if %{snapshot}
 %define	svndate	20120103
 %define	svnrev	66801
@@ -27,7 +27,7 @@ Name:		eina
 Version:	1.1.99.%{svnrev}
 Release:	0.%{svndate}.1
 %else
-Version:	1.1.0
+Version:	1.2.1
 Release:	1
 %endif
 Summary:	Data Type Library
