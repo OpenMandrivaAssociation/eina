@@ -1,2 +1,3 @@
 sources:
-  "eina-1.2.1.tar.bz2:"	a1f4c59f7094a0f7494d383757e45743457c12bf
+  "eio-1.7.1.tar.gz": ae9d1760c417e37d3df65181df532daa81e51281
+  eina-1.7.2.tar.gz: cb56cf9ec28d7cb42ca168d9e261c5f580986c29
