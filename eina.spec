@@ -27,7 +27,7 @@ Name:		eina
 Version:	1.1.99.%{svnrev}
 Release:	0.%{svndate}.1
 %else
-Version:	1.7.2
+Version:	1.7.3
 Release:	1
 %endif
 Summary:	Data Type Library
