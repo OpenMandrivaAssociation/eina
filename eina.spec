@@ -2,9 +2,8 @@
 %define	libname %mklibname %{name} %{major}
 %define	devname %mklibname %{name} -d
 
-Summary:	Data Type Library
 Name:		eina
-Version:	1.7.5
+Version:	1.7.6
 Release:	1
 Summary:	Data Type Library
 License:	LGPLv2+
