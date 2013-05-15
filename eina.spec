@@ -3,13 +3,13 @@
 %define	devname %mklibname %{name} -d
 
 Name:		eina
-Version:	1.7.6
+Version:	1.7.7
 Release:	1
 Summary:	Data Type Library
 License:	LGPLv2+
 Group:		Graphical desktop/Enlightenment
 URL:		http://www.enlightenment.org/
-Source0:	http://download.enlightenment.fr/releases/%{name}-%{version}.tar.gz
+Source0:	http://download.enlightenment.fr/releases/%{name}-%{version}.tar.bz2
 
 %description
 Eina is a data type library.
