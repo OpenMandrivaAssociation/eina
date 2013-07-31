@@ -2,13 +2,13 @@
 %define	libname %mklibname %{name} %{major}
 %define	devname %mklibname %{name} -d
 
-Name:		eina
-Version:	1.7.7
-Release:	1
 Summary:	Data Type Library
+Name:		eina
+Version:	1.7.8
+Release:	1
 License:	LGPLv2+
 Group:		Graphical desktop/Enlightenment
-URL:		http://www.enlightenment.org/
+Url:		http://www.enlightenment.org/
 Source0:	http://download.enlightenment.fr/releases/%{name}-%{version}.tar.bz2
 
 %description
@@ -44,10 +44,10 @@ Provides:	%{name}-devel = %{version}-%{release}
 %makeinstall_std
 
 %files -n %{libname}
-%{_libdir}/*.so.%{major}*
+%{_libdir}/libeina.so.%{major}*
 
 %files -n %{devname}
 %{_libdir}/pkgconfig/*
-%{_libdir}/*.so
+%{_libdir}/libeina.so
 %{_includedir}/*
 
