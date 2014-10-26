@@ -4,12 +4,12 @@
 
 Summary:	Data Type Library
 Name:		eina
-Version:	1.7.8
+Version:	1.7.10
 Release:	1
 License:	LGPLv2+
 Group:		Graphical desktop/Enlightenment
 Url:		http://www.enlightenment.org/
-Source0:	http://download.enlightenment.fr/releases/%{name}-%{version}.tar.bz2
+Source0:	http://download.enlightenment.org/releases/%{name}-%{version}.tar.bz2
 
 %description
 Eina is a data type library.
@@ -34,7 +34,7 @@ Provides:	%{name}-devel = %{version}-%{release}
 %setup -q
 
 %build
-%configure2_5x \
+%configure \
 	--disable-cpu-sse \
 	--disable-static
 
@@ -50,4 +50,3 @@ Provides:	%{name}-devel = %{version}-%{release}
 %{_libdir}/pkgconfig/*
 %{_libdir}/libeina.so
 %{_includedir}/*
-
