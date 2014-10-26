@@ -1,3 +1,5 @@
+# this package is OBSOLETED
+# by EFL
 %define	major	1
 %define	libname %mklibname %{name} %{major}
 %define	devname %mklibname %{name} -d
